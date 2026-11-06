@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ChromaVision - An innovative smart eyewear concept combining prescription optics with temperature- and sunlight-responsive adaptive lenses. See the world in every shade.">
+  <meta name="keywords" content="ChromaVision, smart eyewear, adaptive lenses, prescription sunglasses, photochromic, thermochromic, optical innovation">
+  <meta name="author" content="ChromaVision Innovation Labs">
+  <meta name="theme-color" content="#07090e">
+
+  <title>CHROMAVISION | See the World in Every Shade</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Interactive Moveable Dots Background Canvas -->
+  <canvas id="ambient-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- ========================================================
+       GLOBAL HEADER & NAVIGATION
+       ======================================================== -->
+  <header class="header" id="header">
+    <div class="nav-container">
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo" aria-label="ChromaVision Home">
+        <div class="logo-symbol">
+          <svg viewBox="0 0 44 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg" aria-hidden="true">
+            <path d="M4 13C4 7.477 8.477 3 14 3C19.523 3 22 13 22 13C22 13 24.477 3 30 3C35.523 3 40 7.477 40 13C40 18.523 35.523 23 30 23C24.477 23 22 13 22 13C22 13 19.523 23 14 23C8.477 23 4 18.523 4 13Z" stroke="url(#logo-gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="14" cy="13" r="4.5" fill="url(#logo-cyan)" fill-opacity="0.7"/>
+            <circle cx="30" cy="13" r="4.5" fill="url(#logo-cyan)" fill-opacity="0.7"/>
+            <defs>
+              <linearGradient id="logo-gradient" x1="4" y1="3" x2="40" y2="23" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#38bdf8"/>
+                <stop offset="0.5" stop-color="#cbd5e1"/>
+                <stop offset="1" stop-color="#f59e0b"/>
+              </linearGradient>
+              <linearGradient id="logo-cyan" x1="9" y1="9" x2="19" y2="17" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#38bdf8"/>
+                <stop offset="1" stop-color="#0284c7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo-text-group">
+          <span class="logo-title">CHROMA<span>VISION</span></span>
+          <span class="logo-badge">CONCEPT LAB</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#innovation" class="nav-link">Innovation</a></li>
+          <li class="nav-item"><a href="#studio" class="nav-link nav-highlight"><span class="nav-pulse"></span>Colour Studio</a></li>
+          <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+          <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li class="nav-item"><a href="#future-vision" class="nav-link">Future Vision</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav CTA Action -->
+      <div class="nav-actions">
+        <a href="#studio" class="btn btn-sm btn-outline-cyan">
+          <span>Simulator</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="drawer-content">
+      <ul class="drawer-list">
+        <li><a href="#home" class="drawer-link">Home</a></li>
+        <li><a href="#about" class="drawer-link">About Our Startup</a></li>
+        <li><a href="#innovation" class="drawer-link">Our Innovation</a></li>
+        <li><a href="#studio" class="drawer-link drawer-highlight">Interactive Colour Studio</a></li>
+        <li><a href="#features" class="drawer-link">Product Features</a></li>
+        <li><a href="#how-it-works" class="drawer-link">How It Works</a></li>
+        <li><a href="#future-vision" class="drawer-link">Future Vision</a></li>
+        <li><a href="#contact" class="drawer-link">Contact & Community</a></li>
+      </ul>
+      <div class="drawer-footer">
+        <a href="#studio" class="btn btn-primary btn-block">Launch Colour Studio</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ========================================================
+         SECTION 1: HERO
+         ======================================================== -->
+    <section class="hero-section" id="home">
+      <!-- Ambient Background Glows -->
+      <div class="ambient-glow ambient-glow-1" aria-hidden="true"></div>
+      <div class="ambient-glow ambient-glow-2" aria-hidden="true"></div>
+      <div class="hero-grid-pattern" aria-hidden="true"></div>
+
+      <div class="container hero-container">
+        <!-- Hero Text Content -->
+        <div class="hero-content">
+          <!-- Status Banner Pill -->
+          <div class="status-pill fade-in">
+            <span class="status-indicator"></span>
+            <span class="status-text">Academic Innovation Concept &bull; B.Tech Web Showcase</span>
+          </div>
+
+          <!-- Main Hero Headline -->
+          <h1 class="hero-title fade-in delay-1">
+            See the World in <br>
+            <span class="gradient-text">Every Shade.</span>
+          </h1>
+
+          <!-- Tagline & Intro -->
+          <p class="hero-tagline fade-in delay-2">
+            The next generation of dual-adaptive smart eyewear.
+          </p>
+          <p class="hero-description fade-in delay-2">
+            ChromaVision reimagines everyday vision by merging custom prescription optics with ambient temperature- and sunlight-responsive molecular lenses. One seamless frame that naturally shifts from <strong>Ice Blue</strong> to <strong>Silver Grey</strong>, <strong>Bronze</strong>, and <strong>Deep Blackout</strong>.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="hero-cta-group fade-in delay-3">
+            <a href="#innovation" class="btn btn-primary btn-glow">
+              <span>Explore Innovation</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#about" class="btn btn-secondary">
+              <span>Discover Our Vision</span>
+            </a>
+            <a href="#studio" class="btn btn-ghost">
+              <span class="pulse-dot"></span>
+              <span>Test Simulator</span>
+            </a>
+          </div>
+
+          <!-- Key Metrics Strip -->
+          <div class="hero-metrics fade-in delay-4">
+            <div class="metric-item">
+              <span class="metric-val">Dual</span>
+              <span class="metric-label">Thermal + Solar Matrix</span>
+            </div>
+            <div class="metric-divider" aria-hidden="true"></div>
+            <div class="metric-item">
+              <span class="metric-val">100%</span>
+              <span class="metric-label">UV400 Bio-Protection</span>
+            </div>
+            <div class="metric-divider" aria-hidden="true"></div>
+            <div class="metric-item">
+              <span class="metric-val">Zero</span>
+              <span class="metric-label">Batteries or Charging</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Product Visual Artwork -->
+        <div class="hero-visual fade-in delay-2">
+          <div class="product-stage" id="hero-spectacle-stage">
+            <!-- Floating Holographic Badges -->
+            <div class="floating-badge badge-top-left">
+              <div class="badge-icon-wrap ice-bg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93"/></svg>
+              </div>
+              <div class="badge-text">
+                <span class="badge-title">Thermo-Reactive</span>
+                <span class="badge-sub">Cold &bull; Mild &bull; Warm</span>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-bottom-right">
+              <div class="badge-icon-wrap gold-bg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+              </div>
+              <div class="badge-text">
+                <span class="badge-title">Solar Override</span>
+                <span class="badge-sub">Intense Sunlight Blackout</span>
+              </div>
+            </div>
+
+            <!-- Bespoke Vector Futuristic Eyewear Render -->
+            <div class="glasses-showcase-box" id="hero-glasses-box">
+              <div class="glass-reflection-flare" id="hero-glass-flare" aria-hidden="true"></div>
+              <svg class="hero-sunglasses-svg" viewBox="0 0 760 330" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Futuristic ChromaVision smart eyewear prototype render">
+                <defs>
+                  <!-- Dynamic Lens Gradient (Hero Default: Dynamic Ice Blue / Chrome) -->
+                  <linearGradient id="hero-lens-left-grad" x1="160" y1="80" x2="340" y2="240" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.85"/>
+                    <stop offset="45%" stop-color="#38bdf8" stop-opacity="0.75"/>
+                    <stop offset="100%" stop-color="#0284c7" stop-opacity="0.9"/>
+                  </linearGradient>
+                  <linearGradient id="hero-lens-right-grad" x1="420" y1="80" x2="600" y2="240" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.85"/>
+                    <stop offset="45%" stop-color="#38bdf8" stop-opacity="0.75"/>
+                    <stop offset="100%" stop-color="#0284c7" stop-opacity="0.9"/>
+                  </linearGradient>
+
+                  <!-- Frame Metallic Gradient -->
+                  <linearGradient id="titanium-frame" x1="0" y1="0" x2="760" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#0f172a"/>
+                    <stop offset="25%" stop-color="#334155"/>
+                    <stop offset="50%" stop-color="#64748b"/>
+                    <stop offset="75%" stop-color="#334155"/>
+                    <stop offset="100%" stop-color="#0f172a"/>
+                  </linearGradient>
+
+                  <!-- Lens Specular Glare -->
+                  <linearGradient id="lens-sheen" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+                    <stop offset="30%" stop-color="#ffffff" stop-opacity="0.1"/>
+                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                  </linearGradient>
+
+                  <!-- Glow Filter -->
+                  <filter id="hero-lens-glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="8" result="blur"/>
+                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                  </filter>
+                </defs>
+
+                <!-- Shadow Pedestal -->
+                <ellipse cx="380" cy="300" rx="310" ry="24" fill="#000000" fill-opacity="0.5" filter="blur(16px)"/>
+
+                <!-- Eyewear Temples (Arms extending backward in perspective) -->
+                <path d="M72 138 C100 110 145 95 180 95" stroke="url(#titanium-frame)" stroke-width="9" stroke-linecap="round"/>
+                <path d="M688 138 C660 110 615 95 580 95" stroke="url(#titanium-frame)" stroke-width="9" stroke-linecap="round"/>
+                <path d="M68 140 L50 162" stroke="#475569" stroke-width="6" stroke-linecap="round"/>
+                <path d="M692 140 L710 162" stroke="#475569" stroke-width="6" stroke-linecap="round"/>
+
+                <!-- LENSES -->
+                <!-- Left Lens -->
+                <g filter="url(#hero-lens-glow)">
+                  <path id="hero-lens-left" d="M142 98 C215 90 325 90 348 102 C356 106 358 135 352 185 C345 235 315 256 242 256 C170 256 132 232 128 178 C124 125 130 99 142 98 Z" 
+                        fill="url(#hero-lens-left-grad)" class="lens-body"/>
+                  <!-- Optical Prescription Grid Lines (Subtle) -->
+                  <circle cx="242" cy="174" r="50" stroke="#ffffff" stroke-opacity="0.12" stroke-dasharray="3 4" fill="none"/>
+                  <circle cx="242" cy="174" r="28" stroke="#ffffff" stroke-opacity="0.1" stroke-dasharray="2 3" fill="none"/>
+                  <line x1="242" y1="118" x2="242" y2="230" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2 2"/>
+                  <line x1="186" y1="174" x2="298" y2="174" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2 2"/>
+                  <!-- Lens Specular Glare Arc -->
+                  <path d="M146 112 C200 106 280 108 322 122 C295 130 220 126 168 138 Z" fill="url(#lens-sheen)"/>
+                  <!-- Precision Etch Logo -->
+                  <text x="146" y="118" font-family="'Space Grotesk', monospace" font-size="7" fill="#ffffff" fill-opacity="0.5" letter-spacing="1">CHROMA &bull; Rx</text>
+                </g>
+
+                <!-- Right Lens -->
+                <g filter="url(#hero-lens-glow)">
+                  <path id="hero-lens-right" d="M618 98 C545 90 435 90 412 102 C404 106 402 135 408 185 C415 235 445 256 518 256 C590 256 628 232 632 178 C636 125 630 99 618 98 Z" 
+                        fill="url(#hero-lens-right-grad)" class="lens-body"/>
+                  <!-- Optical Prescription Grid Lines -->
+                  <circle cx="518" cy="174" r="50" stroke="#ffffff" stroke-opacity="0.12" stroke-dasharray="3 4" fill="none"/>
+                  <circle cx="518" cy="174" r="28" stroke="#ffffff" stroke-opacity="0.1" stroke-dasharray="2 3" fill="none"/>
+                  <line x1="518" y1="118" x2="518" y2="230" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2 2"/>
+                  <line x1="462" y1="174" x2="574" y2="174" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2 2"/>
+                  <!-- Lens Specular Glare Arc -->
+                  <path d="M614 112 C560 106 480 108 438 122 C465 130 540 126 592 138 Z" fill="url(#lens-sheen)"/>
+                </g>
+
+                <!-- TITANIUM FRAMEWORK & BROW BAR -->
+                <!-- Top Brow Bar Bridge -->
+                <path d="M120 96 C240 84 340 86 380 94 C420 86 520 84 640 96 C655 97 662 108 658 120 C655 128 646 130 638 126 C530 104 430 104 380 110 C330 104 230 104 122 126 C114 130 105 128 102 120 C98 108 105 97 120 96 Z" 
+                      fill="url(#titanium-frame)" stroke="#64748b" stroke-width="1.5"/>
+
+                <!-- Outer Rim Bezels (Left & Right) -->
+                <path d="M138 96 C210 88 322 88 348 100 C360 105 362 136 356 186 C348 238 316 260 242 260 C168 260 128 234 124 180 C120 124 126 98 138 96 Z" 
+                      stroke="url(#titanium-frame)" stroke-width="7" fill="none"/>
+                <path d="M622 96 C550 88 438 88 412 100 C400 105 398 136 404 186 C412 238 444 260 518 260 C592 260 632 234 636 180 C640 124 634 98 622 96 Z" 
+                      stroke="url(#titanium-frame)" stroke-width="7" fill="none"/>
+
+                <!-- Central Nose Bridge & Sensor Pod (Aesthetic) -->
+                <path d="M346 112 C364 106 396 106 414 112 C406 126 398 132 380 132 C362 132 354 126 346 112 Z" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+                <circle cx="380" cy="120" r="3.5" fill="#38bdf8" filter="drop-shadow(0 0 4px #38bdf8)"/>
+
+                <!-- Adjustable Ergonomic Nose Pads -->
+                <ellipse cx="348" cy="158" rx="5" ry="12" fill="#94a3b8" fill-opacity="0.6" stroke="#475569" stroke-width="1.5"/>
+                <ellipse cx="412" cy="158" rx="5" ry="12" fill="#94a3b8" fill-opacity="0.6" stroke="#475569" stroke-width="1.5"/>
+
+                <!-- Frame Bevel Accents (Highlights) -->
+                <path d="M136 94 L346 94" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M414 94 L624 94" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <!-- Quick Tint Interactive Preview Bar -->
+            <div class="hero-preview-bar">
+              <span class="preview-label">Quick Preview:</span>
+              <button class="preview-chip active" data-tint="ice" title="Preview Ice Blue Tint">
+                <span class="chip-color ice"></span> Cold &bull; Ice Blue
+              </button>
+              <button class="preview-chip" data-tint="silver" title="Preview Silver Grey Tint">
+                <span class="chip-color silver"></span> Mild &bull; Silver Grey
+              </button>
+              <button class="preview-chip" data-tint="bronze" title="Preview Bronze Tint">
+                <span class="chip-color bronze"></span> Warm &bull; Bronze
+              </button>
+              <button class="preview-chip" data-tint="black" title="Preview Intense Sunlight Override">
+                <span class="chip-color black"></span> Intense &bull; Solar Black
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Concept Notice Bar -->
+      <div class="concept-disclaimer-bar">
+        <div class="container disclaimer-inner">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span><strong>Project Disclosure:</strong> ChromaVision is an innovative smart eyewear engineering concept currently under academic research and development. It is presented as a proposed design vision for competition purposes, not as an active commercial product.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 2: ABOUT OUR STARTUP
+         ======================================================== -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center">
+          <div class="section-tag">ABOUT OUR STARTUP</div>
+          <h2 class="section-title">Reimagining How Humankind Experiences Light</h2>
+          <p class="section-subtitle">Born from engineering curiosity to solve one of the most frustrating everyday compromises in optical history.</p>
+        </div>
+
+        <!-- Story / Origin Grid -->
+        <div class="about-grid">
+          <!-- Left Column: The Problem & Story -->
+          <div class="about-narrative-card">
+            <div class="card-eyebrow">THE ORIGIN STORY</div>
+            <h3 class="narrative-heading">Why ChromaVision Was Imagined</h3>
+            <p>
+              Over <strong>4.5 billion people worldwide</strong> require vision correction to navigate their daily lives. Yet for decades, prescription wearers have faced a persistent, frustrating dilemma whenever stepping into daylight.
+            </p>
+            <p>
+              Traditional options force wearers into awkward workarounds: carrying two separate cases everywhere, fumbling with clunky clip-ons, or wearing first-generation photochromic lenses that remain darkened inside air-conditioned rooms, take up to 10 minutes to clear, and completely ignore ambient temperature.
+            </p>
+            <div class="quote-box">
+              <p class="quote-text">"Why should someone who requires prescription clarity have to sacrifice effortless sun protection, aesthetic style, or thermal comfort? We asked: what if a single lens could respond organically to its environment?"</p>
+              <span class="quote-author">&mdash; The ChromaVision Student Founder Collective</span>
+            </div>
+          </div>
+
+          <!-- Right Column: The Dual-Pair Dilemma vs ChromaVision Solution -->
+          <div class="comparison-card">
+            <div class="comparison-header">
+              <h4>The Paradigm Shift</h4>
+              <span class="comp-badge">Evolution</span>
+            </div>
+
+            <div class="comp-table">
+              <div class="comp-row head-row">
+                <div class="comp-col col-feature">Experience Metric</div>
+                <div class="comp-col col-old">Traditional Dual-Pair</div>
+                <div class="comp-col col-new">ChromaVision Unity</div>
+              </div>
+
+              <div class="comp-row">
+                <div class="comp-col col-feature">Everyday Portability</div>
+                <div class="comp-col col-old"><span class="cross">&times;</span> Juggling 2 bulky cases</div>
+                <div class="comp-col col-new"><span class="check">&check;</span> 1 singular ultra-light frame</div>
+              </div>
+
+              <div class="comp-row">
+                <div class="comp-col col-feature">Thermal Adaptation</div>
+                <div class="comp-col col-old"><span class="cross">&times;</span> None (Static tint)</div>
+                <div class="comp-col col-new"><span class="check">&check;</span> 3 Thermo-adaptive tones</div>
+              </div>
+
+              <div class="comp-row">
+                <div class="comp-col col-feature">Blinding Sun Glare</div>
+                <div class="comp-col col-old"><span class="cross">&times;</span> Swap frames manually</div>
+                <div class="comp-col col-new"><span class="check">&check;</span> Instant solar dark override</div>
+              </div>
+
+              <div class="comp-row">
+                <div class="comp-col col-feature">Prescription Support</div>
+                <div class="comp-col col-old"><span class="neutral">&sim;</span> Expensive tint duplication</div>
+                <div class="comp-col col-new"><span class="check">&check;</span> Fully integrated optical core</div>
+              </div>
+
+              <div class="comp-row">
+                <div class="comp-col col-feature">Power & Charging</div>
+                <div class="comp-col col-old"><span class="neutral">&mdash;</span> None</div>
+                <div class="comp-col col-new"><span class="check">&check;</span> 100% Zero-battery passive</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vision and Mission Twin Pillars -->
+        <div class="twin-pillars-grid">
+          <div class="pillar-card pillar-vision">
+            <div class="pillar-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3>Our Startup Vision</h3>
+            <p>
+              To eliminate optical compromise forever. We envision a future where high-fashion aesthetic design, medical-grade ophthalmic prescription accuracy, and responsive nanomaterials merge effortlessly into a timeless everyday accessory.
+            </p>
+          </div>
+
+          <div class="pillar-card pillar-mission">
+            <div class="pillar-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Our Startup Mission</h3>
+            <p>
+              To engineer and validate smarter, zero-battery adaptive eyewear. Through student-led research in molecular polymer physics, we seek to replace bulky electronic smart glasses with elegant, naturally responsive materials accessible to everyone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 3: OUR INNOVATION
+         ======================================================== -->
+    <section class="section innovation-section" id="innovation">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center">
+          <div class="section-tag">PROPOSED TECHNOLOGY</div>
+          <h2 class="section-title">The Dual-Matrix Molecular Paradigm</h2>
+          <p class="section-subtitle">A fusion of thermo-responsive crystalline chemistry and photo-kinetic solar attenuation &mdash; engineered into a unified optical substrate.</p>
+        </div>
+
+        <!-- Innovation Pillars Grid -->
+        <div class="innovation-pillars-grid">
+          <!-- Pillar 1 -->
+          <div class="innovate-card">
+            <div class="innovate-number">01</div>
+            <div class="innovate-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h4 class="innovate-title">Prescription Optical Integration</h4>
+            <p class="innovate-desc">
+              Custom-cast directly on high-index (1.67 / 1.74) optical polymer. Accommodates single-vision, bifocal, and progressive prescriptions without chromatic aberration or edge distortion.
+            </p>
+            <div class="innovate-meta">
+              <span class="meta-tag">Rx Range: -8.00D to +6.00D</span>
+              <span class="meta-tag">Abbe Value: 42</span>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="innovate-card">
+            <div class="innovate-number">02</div>
+            <div class="innovate-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7dd3fc" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+            </div>
+            <h4 class="innovate-title">Temperature-Responsive Chromic Matrix</h4>
+            <p class="innovate-desc">
+              Organic micro-encapsulated thermochromic pigments shift light reflection wavelengths dynamically: frosty <strong>Ice Blue</strong> in chill, refined <strong>Silver Grey</strong> in mild climates, and rich <strong>Bronze</strong> in warm conditions.
+            </p>
+            <div class="innovate-meta">
+              <span class="meta-tag">Cold: &lt;12&deg;C (Ice Blue)</span>
+              <span class="meta-tag">Warm: &gt;28&deg;C (Bronze)</span>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="innovate-card">
+            <div class="innovate-number">03</div>
+            <div class="innovate-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            </div>
+            <h4 class="innovate-title">Sunlight Solar Override</h4>
+            <p class="innovate-desc">
+              When exposed to intense UV sunlight, photo-reactive silver halide nano-compounds cross-link immediately. This overrides the temperature tint, transforming the lens into <strong>Deep Blackout Mode</strong> for glare protection.
+            </p>
+            <div class="innovate-meta">
+              <span class="meta-tag">Override Trigger: UV &ge; 6</span>
+              <span class="meta-tag">Absorption: 92%</span>
+            </div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="innovate-card">
+            <div class="innovate-number">04</div>
+            <div class="innovate-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+            </div>
+            <h4 class="innovate-title">Zero-Button Autonomous Physics</h4>
+            <p class="innovate-desc">
+              Operates entirely via passive molecular kinetics. No fragile lithium-ion batteries, zero magnetic charging pins, no paired apps, and no electromagnetic fields near the head.
+            </p>
+            <div class="innovate-meta">
+              <span class="meta-tag">Weight: 19 grams</span>
+              <span class="meta-tag">0 mAh Required</span>
+            </div>
+          </div>
+
+          <!-- Pillar 5 -->
+          <div class="innovate-card">
+            <div class="innovate-number">05</div>
+            <div class="innovate-icon-box">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4 class="innovate-title">UV400 Total Bio-Shield</h4>
+            <p class="innovate-desc">
+              Continuous medical-grade ocular preservation blocking 100% of UVA and UVB rays up to 400nm across all tint states &mdash; guarding corneal tissue and the macula from photo-oxidative stress.
+            </p>
+            <div class="innovate-meta">
+              <span class="meta-tag">100% UVA / UVB Block</span>
+              <span class="meta-tag">ANSI Z80.3 Ready</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proposed Micro-Layer Architecture Diagram -->
+        <div class="architecture-showcase">
+          <div class="arch-header">
+            <h3>Proposed 6-Layer Nano-Composite Structure</h3>
+            <p>Theoretical molecular stack engineered for durability, optical clarity, and continuous environmental adaptation.</p>
+          </div>
+
+          <div class="layers-stack">
+            <div class="layer-item">
+              <span class="layer-num">L1</span>
+              <div class="layer-content">
+                <h5>Hydrophobic & Oleophobic Nano-Armor</h5>
+                <p>Repels rain droplets, fingerprint smudges, and dust particles while resisting scratches.</p>
+              </div>
+            </div>
+
+            <div class="layer-item highlight-solar">
+              <span class="layer-num">L2</span>
+              <div class="layer-content">
+                <h5>Photonic Solar-Darkening Matrix</h5>
+                <p>Ultraviolet-responsive silver halide nanoparticles responsible for the intense solar blackout override.</p>
+              </div>
+            </div>
+
+            <div class="layer-item highlight-thermo">
+              <span class="layer-num">L3</span>
+              <div class="layer-content">
+                <h5>Thermo-Responsive Chromic Core</h5>
+                <p>Micro-encapsulated thermotropic liquid crystal layer delivering Ice Blue, Silver Grey, or Bronze tones.</p>
+              </div>
+            </div>
+
+            <div class="layer-item">
+              <span class="layer-num">L4</span>
+              <div class="layer-content">
+                <h5>High-Index Precision Prescription Substrate</h5>
+                <p>High-clarity optical resin tailored to the wearer's specific corrective prescription parameters.</p>
+              </div>
+            </div>
+
+            <div class="layer-item">
+              <span class="layer-num">L5</span>
+              <div class="layer-content">
+                <h5>Polarized Anti-Glare Filtration Grid</h5>
+                <p>Eliminates horizontal glare from wet asphalt, oceanic reflection, and snowscapes.</p>
+              </div>
+            </div>
+
+            <div class="layer-item">
+              <span class="layer-num">L6</span>
+              <div class="layer-content">
+                <h5>Inner Multi-Coat Anti-Reflective Backing</h5>
+                <p>Suppresses back-surface reflections and ghost images entering the ocular field from behind.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 4: INTERACTIVE COLOUR STUDIO (THE HIGHLIGHT)
+         ======================================================== -->
+    <section class="section studio-section" id="studio">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center">
+          <div class="section-tag studio-tag"><span class="pulse-dot"></span> INTERACTIVE LAB SIMULATION</div>
+          <h2 class="section-title">The Interactive Colour Studio</h2>
+          <p class="section-subtitle">Experience how ChromaVision adapts to climate and daylight in real time. Adjust environmental conditions to observe the intelligent dual-responsive tint transition.</p>
+        </div>
+
+        <!-- Simulator Core Card Container -->
+        <div class="studio-card">
+          <!-- Environmental Atmosphere Wrapper (Dynamic Glow Changes via JS) -->
+          <div class="studio-stage" id="studio-stage">
+
+            <!-- Dynamic Weather Atmosphere Backdrop -->
+            <div class="stage-backdrop" id="stage-backdrop" aria-hidden="true">
+              <div class="backdrop-glow" id="backdrop-glow"></div>
+              <div class="stage-particle-canvas" id="particle-overlay"></div>
+            </div>
+
+            <!-- Top Stage Status Bar -->
+            <div class="stage-header-bar">
+              <div class="stage-badge-group">
+                <span class="stage-status-badge" id="stage-mode-badge">
+                  <span class="status-pulse-dot" id="status-pulse-dot"></span>
+                  <span id="stage-mode-text">THERMAL MODE ACTIVE</span>
+                </span>
+                <span class="stage-vlt-badge">
+                  <span>VLT:</span> <strong id="vlt-readout">72%</strong>
+                </span>
+              </div>
+
+              <!-- Quick Toggle Actions -->
+              <div class="stage-toggles">
+                <button class="toggle-btn" id="toggle-rx-btn" title="Toggle Prescription Grid Overlay">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>
+                  <span>Rx Crosshairs</span>
+                </button>
+                <button class="toggle-btn" id="toggle-rays-btn" title="Toggle Environmental Photon Rays">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                  <span>UV Ray Sim</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- SVG Eyewear Simulator Canvas -->
+            <div class="stage-svg-wrap" id="studio-glasses-wrap">
+              <!-- Visual Photon Ray Conduits (Animated when active) -->
+              <div class="photon-rays-layer" id="photon-rays" aria-hidden="true">
+                <span class="photon-ray ray-1"></span>
+                <span class="photon-ray ray-2"></span>
+                <span class="photon-ray ray-3"></span>
+                <span class="photon-ray ray-4"></span>
+              </div>
+
+              <svg class="studio-sunglasses-svg" viewBox="0 0 760 330" fill="none" xmlns="http://www.w3.org/2000/svg" id="studio-svg" aria-label="Interactive simulated ChromaVision eyewear prototype">
+                <defs>
+                  <!-- Dynamically Modified Gradient Stops via JavaScript -->
+                  <linearGradient id="sim-lens-left-grad" x1="160" y1="80" x2="340" y2="240" gradientUnits="userSpaceOnUse">
+                    <stop id="lens-left-stop-1" offset="0%" stop-color="#7dd3fc" stop-opacity="0.85"/>
+                    <stop id="lens-left-stop-2" offset="50%" stop-color="#38bdf8" stop-opacity="0.75"/>
+                    <stop id="lens-left-stop-3" offset="100%" stop-color="#0284c7" stop-opacity="0.9"/>
+                  </linearGradient>
+
+                  <linearGradient id="sim-lens-right-grad" x1="420" y1="80" x2="600" y2="240" gradientUnits="userSpaceOnUse">
+                    <stop id="lens-right-stop-1" offset="0%" stop-color="#7dd3fc" stop-opacity="0.85"/>
+                    <stop id="lens-right-stop-2" offset="50%" stop-color="#38bdf8" stop-opacity="0.75"/>
+                    <stop id="lens-right-stop-3" offset="100%" stop-color="#0284c7" stop-opacity="0.9"/>
+                  </linearGradient>
+
+                  <!-- Dynamic Frame Reflection -->
+                  <linearGradient id="sim-frame-grad" x1="0" y1="0" x2="760" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#0b0f19"/>
+                    <stop offset="30%" stop-color="#1e293b"/>
+                    <stop offset="50%" stop-color="#475569"/>
+                    <stop offset="70%" stop-color="#1e293b"/>
+                    <stop offset="100%" stop-color="#0b0f19"/>
+                  </linearGradient>
+
+                  <!-- Dynamic Lens Glow Filter -->
+                  <filter id="sim-lens-glow-filter" x="-25%" y="-25%" width="150%" height="150%">
+                    <feGaussianBlur id="sim-glow-blur" stdDeviation="6" result="blur"/>
+                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                  </filter>
+                </defs>
+
+                <!-- Ground Shadow -->
+                <ellipse cx="380" cy="305" rx="320" ry="22" fill="#000000" fill-opacity="0.55" filter="blur(14px)"/>
+
+                <!-- Temples (Arms) -->
+                <path d="M72 138 C100 110 145 95 180 95" stroke="url(#sim-frame-grad)" stroke-width="9" stroke-linecap="round"/>
+                <path d="M688 138 C660 110 615 95 580 95" stroke="url(#sim-frame-grad)" stroke-width="9" stroke-linecap="round"/>
+                <path d="M68 140 L48 162" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+                <path d="M692 140 L712 162" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+
+                <!-- SIMULATED LENSES -->
+                <!-- Left Lens Group -->
+                <g filter="url(#sim-lens-glow-filter)">
+                  <path id="sim-lens-left-path" class="sim-lens" 
+                        d="M142 98 C215 90 325 90 348 102 C356 106 358 135 352 185 C345 235 315 256 242 256 C170 256 132 232 128 178 C124 125 130 99 142 98 Z" 
+                        fill="url(#sim-lens-left-grad)"/>
+
+                  <!-- Prescription Optical Crosshairs (Toggled by user) -->
+                  <g id="rx-grid-left" class="rx-grid-layer hidden">
+                    <circle cx="242" cy="174" r="56" stroke="#ffffff" stroke-opacity="0.25" stroke-dasharray="3 4" fill="none"/>
+                    <circle cx="242" cy="174" r="32" stroke="#ffffff" stroke-opacity="0.2" stroke-dasharray="2 3" fill="none"/>
+                    <circle cx="242" cy="174" r="10" stroke="#38bdf8" stroke-opacity="0.4" fill="none"/>
+                    <line x1="242" y1="108" x2="242" y2="240" stroke="#ffffff" stroke-opacity="0.2" stroke-dasharray="2 2"/>
+                    <line x1="176" y1="174" x2="308" y2="174" stroke="#ffffff" stroke-opacity="0.2" stroke-dasharray="2 2"/>
+                    <text x="248" y="166" font-family="'Space Grotesk', monospace" font-size="8" fill="#38bdf8" fill-opacity="0.7">OPTICAL CENTER (0,0)</text>
+                  </g>
+
+                  <!-- Dynamic Glare Reflection -->
+                  <path d="M146 112 C200 106 280 108 322 122 C295 130 220 126 168 138 Z" fill="url(#lens-sheen)"/>
+                  <text x="146" y="118" font-family="'Space Grotesk', monospace" font-size="7" fill="#ffffff" fill-opacity="0.6" letter-spacing="1">CHROMAVISION &bull; LAB</text>
+                </g>
+
+                <!-- Right Lens Group -->
+                <g filter="url(#sim-lens-glow-filter)">
+                  <path id="sim-lens-right-path" class="sim-lens" 
+                        d="M618 98 C545 90 435 90 412 102 C404 106 402 135 408 185 C415 235 445 256 518 256 C590 256 628 232 632 178 C636 125 630 99 618 98 Z" 
+                        fill="url(#sim-lens-right-grad)"/>
+
+                  <!-- Prescription Optical Crosshairs (Right) -->
+                  <g id="rx-grid-right" class="rx-grid-layer hidden">
+                    <circle cx="518" cy="174" r="56" stroke="#ffffff" stroke-opacity="0.25" stroke-dasharray="3 4" fill="none"/>
+                    <circle cx="518" cy="174" r="32" stroke="#ffffff" stroke-opacity="0.2" stroke-dasharray="2 3" fill="none"/>
+                    <circle cx="518" cy="174" r="10" stroke="#38bdf8" stroke-opacity="0.4" fill="none"/>
+                    <line x1="518" y1="108" x2="518" y2="240" stroke="#ffffff" stroke-opacity="0.2" stroke-dasharray="2 2"/>
+                    <line x1="452" y1="174" x2="584" y2="174" stroke="#ffffff" stroke-opacity="0.2" stroke-dasharray="2 2"/>
+                    <text x="524" y="166" font-family="'Space Grotesk', monospace" font-size="8" fill="#38bdf8" fill-opacity="0.7">Rx AXIS: 90&deg;</text>
+                  </g>
+
+                  <!-- Dynamic Glare Reflection (Right) -->
+                  <path d="M614 112 C560 106 480 108 438 122 C465 130 540 126 592 138 Z" fill="url(#lens-sheen)"/>
+                </g>
+
+                <!-- Titanium Frame Structure -->
+                <!-- Top Brow Bar Bridge -->
+                <path d="M120 96 C240 84 340 86 380 94 C420 86 520 84 640 96 C655 97 662 108 658 120 C655 128 646 130 638 126 C530 104 430 104 380 110 C330 104 230 104 122 126 C114 130 105 128 102 120 C98 108 105 97 120 96 Z" 
+                      fill="url(#sim-frame-grad)" stroke="#475569" stroke-width="1.5"/>
+
+                <!-- Lens Bezel Outer Shells -->
+                <path d="M138 96 C210 88 322 88 348 100 C360 105 362 136 356 186 C348 238 316 260 242 260 C168 260 128 234 124 180 C120 124 126 98 138 96 Z" 
+                      stroke="url(#sim-frame-grad)" stroke-width="7" fill="none"/>
+                <path d="M622 96 C550 88 438 88 412 100 C400 105 398 136 404 186 C412 238 444 260 518 260 C592 260 632 234 636 180 C640 124 634 98 622 96 Z" 
+                      stroke="url(#sim-frame-grad)" stroke-width="7" fill="none"/>
+
+                <!-- Bridge Sensor Pod -->
+                <path d="M346 112 C364 106 396 106 414 112 C406 126 398 132 380 132 C362 132 354 126 346 112 Z" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+                <circle cx="380" cy="120" r="3.5" id="sim-bridge-sensor" fill="#38bdf8"/>
+
+                <!-- Ergonomic Pads -->
+                <ellipse cx="348" cy="158" rx="5" ry="12" fill="#94a3b8" fill-opacity="0.6" stroke="#475569" stroke-width="1.5"/>
+                <ellipse cx="412" cy="158" rx="5" ry="12" fill="#94a3b8" fill-opacity="0.6" stroke="#475569" stroke-width="1.5"/>
+              </svg>
+            </div>
+
+            <!-- Dynamic Telemetry HUD Readout Bar -->
+            <div class="stage-hud-grid">
+              <div class="hud-item">
+                <span class="hud-label">AMBIENT TEMPERATURE</span>
+                <span class="hud-val" id="hud-temp-val"><span id="hud-temp-num">8</span>&deg;C &bull; Cold</span>
+              </div>
+              <div class="hud-item">
+                <span class="hud-label">SUNLIGHT INTENSITY</span>
+                <span class="hud-val" id="hud-sun-val">Low Sunlight</span>
+              </div>
+              <div class="hud-item highlight-item">
+                <span class="hud-label">RESULTING LENS TINT</span>
+                <div class="hud-val-tint">
+                  <span class="tint-color-dot" id="hud-tint-dot"></span>
+                  <span id="hud-tint-name">Light Ice Blue</span>
+                </div>
+              </div>
+              <div class="hud-item">
+                <span class="hud-label">OVERRIDE STATUS</span>
+                <span class="hud-val" id="hud-override-val">Thermal Mode Active</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Control Console (Below Eyewear Display) -->
+          <div class="studio-controls-deck">
+            <div class="controls-grid">
+
+              <!-- CONTROL 1: TEMPERATURE SELECTOR -->
+              <div class="control-box">
+                <div class="control-header">
+                  <div class="control-title-wrap">
+                    <span class="control-step">CONTROL 01</span>
+                    <h4 class="control-title">Ambient Temperature</h4>
+                  </div>
+                  <span class="control-state-badge" id="temp-badge">Active: Cold (&lt;12&deg;C)</span>
+                </div>
+                <p class="control-desc">Select the ambient thermal environment. The thermo-responsive molecular matrix alters its refractive spectral alignment accordingly.</p>
+
+                <div class="control-btn-group" role="radiogroup" aria-label="Temperature Selection">
+                  <button class="ctrl-btn active" data-control="temp" data-value="cold" role="radio" aria-checked="true" id="btn-temp-cold">
+                    <span class="ctrl-btn-icon ice-color">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93"/></svg>
+                    </span>
+                    <div class="ctrl-btn-content">
+                      <span class="btn-main-label">Cold</span>
+                      <span class="btn-sub-label">&lt; 12&deg;C &bull; Ice Blue</span>
+                    </div>
+                  </button>
+
+                  <button class="ctrl-btn" data-control="temp" data-value="mild" role="radio" aria-checked="false" id="btn-temp-mild">
+                    <span class="ctrl-btn-icon silver-color">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+                    </span>
+                    <div class="ctrl-btn-content">
+                      <span class="btn-main-label">Mild</span>
+                      <span class="btn-sub-label">18&deg;C &ndash; 24&deg;C &bull; Silver Grey</span>
+                    </div>
+                  </button>
+
+                  <button class="ctrl-btn" data-control="temp" data-value="warm" role="radio" aria-checked="false" id="btn-temp-warm">
+                    <span class="ctrl-btn-icon bronze-color">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/></svg>
+                    </span>
+                    <div class="ctrl-btn-content">
+                      <span class="btn-main-label">Warm</span>
+                      <span class="btn-sub-label">&gt; 28&deg;C &bull; Bronze</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- CONTROL 2: SUNLIGHT SELECTOR -->
+              <div class="control-box">
+                <div class="control-header">
+                  <div class="control-title-wrap">
+                    <span class="control-step">CONTROL 02</span>
+                    <h4 class="control-title">Sunlight &amp; UV Exposure</h4>
+                  </div>
+                  <span class="control-state-badge" id="sun-badge">Active: Low Sunlight</span>
+                </div>
+                <p class="control-desc">Select daylight solar intensity. <strong>Intense Sunlight</strong> automatically overrides temperature mode to engage Dark Black protective shield.</p>
+
+                <div class="control-btn-group" role="radiogroup" aria-label="Sunlight Selection">
+                  <button class="ctrl-btn active" data-control="sun" data-value="low" role="radio" aria-checked="true" id="btn-sun-low">
+                    <span class="ctrl-btn-icon silver-color">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    </span>
+                    <div class="ctrl-btn-content">
+                      <span class="btn-main-label">Low Sunlight</span>
+                      <span class="btn-sub-label">Indoor &bull; Twilight</span>
+                    </div>
+                  </button>
+
+                  <button class="ctrl-btn" data-control="sun" data-value="moderate" role="radio" aria-checked="false" id="btn-sun-mod">
+                    <span class="ctrl-btn-icon gold-color">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2"/></svg>
+                    </span>
+                    <div class="ctrl-btn-content">
+                      <span class="btn-main-label">Moderate</span>
+                      <span class="btn-sub-label">Daylight &bull; Part Cloud</span>
+                    </div>
+                  </button>
+
+                  <button class="ctrl-btn" data-control="sun" data-value="intense" role="radio" aria-checked="false" id="btn-sun-intense">
+                    <span class="ctrl-btn-icon black-color">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                    </span>
+                    <div class="ctrl-btn-content">
+                      <span class="btn-main-label">Intense Sun</span>
+                      <span class="btn-sub-label">Direct Sun &bull; Dark Black</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Preset Scenarios Quick Bar -->
+            <div class="presets-bar">
+              <span class="presets-title">One-Click Environmental Presets:</span>
+              <div class="preset-buttons">
+                <button class="preset-btn" data-preset="arctic">🏔️ Arctic Morning (Cold + Low)</button>
+                <button class="preset-btn" data-preset="spring">🏙️ Urban Spring (Mild + Low)</button>
+                <button class="preset-btn" data-preset="sahara">🏜️ Sahara Warmth (Warm + Low)</button>
+                <button class="preset-btn" data-preset="highnoon">☀️ High Noon Glare (Any + Intense)</button>
+              </div>
+            </div>
+
+            <!-- Molecular Insight Explanation Box -->
+            <div class="molecular-insight-card" id="molecular-insight">
+              <div class="insight-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              </div>
+              <div class="insight-content">
+                <h5 class="insight-heading" id="insight-title">Active Molecular State: Cryo-Kinetic Ice Blue Phase</h5>
+                <p class="insight-text" id="insight-desc">
+                  At temperatures below 12&deg;C with low UV sunlight, the thermochromic organic molecules contract into a crystalline helical configuration, preferentially reflecting light in the 480nm spectrum to create a crisp, high-contrast Ice Blue tint.
+                </p>
+              </div>
+            </div>
+
+            <!-- Mandatory Academic Concept Disclaimer -->
+            <div class="simulator-academic-disclaimer">
+              <p>
+                <strong>Simulation Disclosure:</strong> This interactive colour studio is a digital concept simulation developed to illustrate the theoretical behavior of the proposed dual-responsive ChromaVision lens. It is rendered via front-end software mathematics for concept evaluation, not connected to physical hardware sensors.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 5: PRODUCT FEATURES
+         ======================================================== -->
+    <section class="section features-section" id="features">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center">
+          <div class="section-tag">ENGINEERED EXCELLENCE</div>
+          <h2 class="section-title">Designed for Everyday Life, Perfected by Science</h2>
+          <p class="section-subtitle">Six core capabilities that elevate ChromaVision from a visionary sketch to an intelligent eyewear breakthrough.</p>
+        </div>
+
+        <!-- 6 Feature Cards Grid -->
+        <div class="features-grid">
+          <!-- Card 1 -->
+          <div class="feature-card">
+            <div class="feature-card-glow"></div>
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 14.83l4.24 4.24M14.83 9.17l4.24-4.24M4.93 19.07l4.24-4.24"/></svg>
+            </div>
+            <h3 class="feature-card-title">Prescription Support</h3>
+            <p class="feature-card-text">
+              Fully compatible with customized ophthalmic prescriptions &mdash; including single-vision, astigmatic toric, bifocal, and progressive multifocal requirements. No bulky inserts or double lenses needed.
+            </p>
+            <ul class="feature-bullet-list">
+              <li>High-index thin profile (1.67 / 1.74)</li>
+              <li>Free-form digital surfacing</li>
+              <li>Zero distortion field-of-view</li>
+            </ul>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="feature-card">
+            <div class="feature-card-glow"></div>
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7dd3fc" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            </div>
+            <h3 class="feature-card-title">Automatic Colour Adaptation</h3>
+            <p class="feature-card-text">
+              Continuous, microsecond optical transition that adjusts autonomously to varying weather conditions without tactile buttons, external remotes, or smartphone battery drains.
+            </p>
+            <ul class="feature-bullet-list">
+              <li>Instant molecular reaction</li>
+              <li>Gradual non-jarring fade curve</li>
+              <li>Friction-free zero-touch UX</li>
+            </ul>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="feature-card">
+            <div class="feature-card-glow"></div>
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+            </div>
+            <h3 class="feature-card-title">Temperature Response</h3>
+            <p class="feature-card-text">
+              Calibrated thermo-responsive pigments react to ambient environmental heat: Ice Blue provides snowy contrast in the cold, Silver Grey offers neutral clarity in mild weather, and Bronze enriches warm horizons.
+            </p>
+            <ul class="feature-bullet-list">
+              <li>Cold mode: Light Ice Blue (&lt;12&deg;C)</li>
+              <li>Mild mode: Silver Grey (18&deg;C&ndash;24&deg;C)</li>
+              <li>Warm mode: Bronze (&gt;28&deg;C)</li>
+            </ul>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="feature-card">
+            <div class="feature-card-glow"></div>
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/></svg>
+            </div>
+            <h3 class="feature-card-title">Sunlight Response &amp; Override</h3>
+            <p class="feature-card-text">
+              Advanced photochromic silver halide nanocrystals rapidly darken the lenses when exposed to direct solar UV radiation, overriding temperature colors to create an impenetrable dark protective tint.
+            </p>
+            <ul class="feature-bullet-list">
+              <li>Automatic intense sun override</li>
+              <li>Dark Black deep polarization</li>
+              <li>Rapid attenuation within 15 seconds</li>
+            </ul>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="feature-card">
+            <div class="feature-card-glow"></div>
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="feature-card-title">UV Protection Goal</h3>
+            <p class="feature-card-text">
+              Engineered with medical-grade UV400 filtration as an uncompromising baseline &mdash; blocking 100% of UVA and UVB radiation across every single tint shade, from transparent indoor to full dark blackout.
+            </p>
+            <ul class="feature-bullet-list">
+              <li>100% UVA/UVB bio-barrier (400nm)</li>
+              <li>Prevents long-term retinal fatigue</li>
+              <li>Meets ANSI and ISO ocular standards</li>
+            </ul>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="feature-card">
+            <div class="feature-card-glow"></div>
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3 class="feature-card-title">Stylish Unisex Design</h3>
+            <p class="feature-card-text">
+              Sculpted from featherweight aerospace-grade beta-titanium and hypoallergenic bio-acetate. A balanced geometric frame geometry designed to flatter all facial contours with 19 grams of all-day comfort.
+            </p>
+            <ul class="feature-bullet-list">
+              <li>19g ultra-lightweight chassis</li>
+              <li>Universal ergonomic nose bridge</li>
+              <li>Matte Obsidian &amp; Silver accents</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 6: HOW IT WORKS
+         ======================================================== -->
+    <section class="section how-section" id="how-it-works">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center">
+          <div class="section-tag">THE PROCESS</div>
+          <h2 class="section-title">How ChromaVision Works</h2>
+          <p class="section-subtitle">The proposed working principle: how kinetic environmental stimuli transform into customized visual clarity.</p>
+        </div>
+
+        <!-- 4-Step Interactive Flow Timeline -->
+        <div class="timeline-container">
+          <!-- Step 1 -->
+          <div class="timeline-card">
+            <div class="step-badge">STEP 01</div>
+            <div class="step-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </div>
+            <h3 class="step-title">Environmental Detection</h3>
+            <p class="step-desc">
+              Ambient temperature gradients and ultraviolet solar photons strike the outer nano-composite coating of the eyewear simultaneously.
+            </p>
+            <span class="step-detail-tag">Stimuli: Thermal flux &bull; UV Wavelengths</span>
+          </div>
+
+          <div class="timeline-arrow" aria-hidden="true">&rarr;</div>
+
+          <!-- Step 2 -->
+          <div class="timeline-card">
+            <div class="step-badge">STEP 02</div>
+            <div class="step-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7dd3fc" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <h3 class="step-title">Molecular Phase Shift</h3>
+            <p class="step-desc">
+              Organic micro-encapsulated thermochromic crystals and photochromic nano-dopants absorb energy and initiate conformational rearrangement.
+            </p>
+            <span class="step-detail-tag">Mechanism: Zero-battery passive kinetics</span>
+          </div>
+
+          <div class="timeline-arrow" aria-hidden="true">&rarr;</div>
+
+          <!-- Step 3 -->
+          <div class="timeline-card">
+            <div class="step-badge">STEP 03</div>
+            <div class="step-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M14.31 8 20.05 17.94"/><path d="M9.69 8h11.48"/><path d="m7.38 12 5.74-9.94"/><path d="M9.69 16 3.95 6.06"/><path d="M14.31 16H2.83"/><path d="m16.62 12-5.74 9.94"/></svg>
+            </div>
+            <h3 class="step-title">Autonomous Tint Transition</h3>
+            <p class="step-desc">
+              The lens absorption band shifts in real time. Intense sunlight prioritizes the dark blackout override; moderate/low sun exhibits Ice Blue, Silver, or Bronze.
+            </p>
+            <span class="step-detail-tag">Result: Intelligent spectral calibration</span>
+          </div>
+
+          <div class="timeline-arrow" aria-hidden="true">&rarr;</div>
+
+          <!-- Step 4 -->
+          <div class="timeline-card">
+            <div class="step-badge">STEP 04</div>
+            <div class="step-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3 class="step-title">Effortless Ocular Clarity</h3>
+            <p class="step-desc">
+              The wearer enjoys crystal-clear vision with customized prescription sharpness, optimal environmental contrast, and 100% UV400 protection without ever touching their glasses.
+            </p>
+            <span class="step-detail-tag">Benefit: One pair for every horizon</span>
+          </div>
+        </div>
+
+        <div class="working-principle-disclaimer text-center">
+          <p><em>* Proposed working principle based on theoretical dual-matrix polymer science and photo-kinetic absorption models.</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 7: FUTURE VISION
+         ======================================================== -->
+    <section class="section vision-section" id="future-vision">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center">
+          <div class="section-tag">THE HORIZON</div>
+          <h2 class="section-title">The ChromaVision R&amp;D Trajectory</h2>
+          <p class="section-subtitle">How we plan to evolve our academic concept into validated laboratory prototypes and accessible commercial eyewear.</p>
+        </div>
+
+        <!-- Future Vision Cards Grid -->
+        <div class="future-grid">
+          <!-- Item 1 -->
+          <div class="future-card">
+            <div class="future-phase-badge">PHASE 01</div>
+            <h4 class="future-title">Experimental Lab Prototypes</h4>
+            <p class="future-desc">
+              Synthesizing initial benchtop test batches of micro-encapsulated thermochromic dyes suspended in optical-grade CR-39 and polycarbonate resins to benchmark color stability.
+            </p>
+            <div class="future-metric">Target: Proof-of-concept coupon testing</div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="future-card">
+            <div class="future-phase-badge">PHASE 02</div>
+            <h4 class="future-title">Advanced Nanomaterial Synthesis</h4>
+            <p class="future-desc">
+              Partnering with university materials science laboratories to explore graphene-infused matrices for accelerated thermal responsiveness and scratch-resistant hardness.
+            </p>
+            <div class="future-metric">Target: Sub-5 second transition window</div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="future-card">
+            <div class="future-phase-badge">PHASE 03</div>
+            <h4 class="future-title">Clinical Ocular Research</h4>
+            <p class="future-desc">
+              Conducting certified ophthalmological trials to validate contrast sensitivity, macular blue-light mitigation, and pupillary comfort across simulated extreme climates.
+            </p>
+            <div class="future-metric">Target: Full ANSI Z80.3 &amp; ISO 12312-1 validation</div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="future-card">
+            <div class="future-phase-badge">PHASE 04</div>
+            <h4 class="future-title">Affordable Smart Eyewear</h4>
+            <p class="future-desc">
+              Our core startup philosophy: eliminating electronic microchips allows us to target an accessible price point, bringing smart adaptive eyewear to ordinary students and professionals.
+            </p>
+            <div class="future-metric">Goal: Under $120 democratized target</div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="future-card">
+            <div class="future-phase-badge">PHASE 05</div>
+            <h4 class="future-title">Expanding the Frame Silhouettes</h4>
+            <p class="future-desc">
+              Transitioning from our launch unisex geometric frame into sports wraparounds for cyclists and mountaineers, classic aviators, and ultra-minimal rimless titanium silhouettes.
+            </p>
+            <div class="future-metric">Target: 4 versatile frame collections</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 8: CONTACT AND JOIN US
+         ======================================================== -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header text-center">
+          <div class="section-tag">COMMUNITY &amp; COLLABORATION</div>
+          <h2 class="section-title">Join the ChromaVision Pioneer Community</h2>
+          <p class="section-subtitle">Have feedback, questions about our proposed technology, or want to follow our university research? Connect with the student founders.</p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Left: Contact Form -->
+          <div class="contact-form-card">
+            <h3 class="form-card-title">Send Us a Concept Inquiry</h3>
+            <p class="form-card-sub">Share your thoughts on our smart eyewear concept or register for future academic milestone alerts.</p>
+
+            <form id="contact-form" class="contact-form" novalidate>
+              <!-- Name Field -->
+              <div class="form-group">
+                <label for="user-name" class="form-label">Your Full Name <span class="required">*</span></label>
+                <div class="input-wrap">
+                  <input type="text" id="user-name" name="name" class="form-input" placeholder="e.g. Alex Rivera" required minlength="2">
+                  <span class="input-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  </span>
+                </div>
+                <span class="form-error" id="name-error" aria-live="polite"></span>
+              </div>
+
+              <!-- Email Field -->
+              <div class="form-group">
+                <label for="user-email" class="form-label">Email Address <span class="required">*</span></label>
+                <div class="input-wrap">
+                  <input type="email" id="user-email" name="email" class="form-input" placeholder="e.g. alex.rivera@university.edu" required>
+                  <span class="input-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  </span>
+                </div>
+                <span class="form-error" id="email-error" aria-live="polite"></span>
+              </div>
+
+              <!-- Prescription Category Dropdown -->
+              <div class="form-group">
+                <label for="user-rx" class="form-label">Your Eyewear Profile (Optional)</label>
+                <div class="input-wrap select-wrap">
+                  <select id="user-rx" name="rx_profile" class="form-input form-select">
+                    <option value="prescription">I wear prescription glasses daily</option>
+                    <option value="contacts">I wear contact lenses + sunglasses</option>
+                    <option value="sunglasses_only">I wear non-prescription sunglasses only</option>
+                    <option value="researcher">Academic Researcher / Optometrist</option>
+                    <option value="curious">Curious Technology Enthusiast</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Message Field -->
+              <div class="form-group">
+                <label for="user-message" class="form-label">Your Message or Feedback <span class="required">*</span></label>
+                <textarea id="user-message" name="message" class="form-input form-textarea" rows="4" placeholder="What are your thoughts on our dual-responsive temperature and sunlight concept?" required minlength="10"></textarea>
+                <span class="form-error" id="message-error" aria-live="polite"></span>
+              </div>
+
+              <!-- Form Submit Button -->
+              <button type="submit" class="btn btn-primary btn-block btn-submit" id="submit-btn">
+                <span class="btn-text">Transmit Concept Feedback</span>
+                <span class="btn-loading hidden" aria-hidden="true">
+                  <svg class="spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="31.4 31.4"/></svg>
+                  Transmitting...
+                </span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="submit-arrow"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+
+              <p class="form-notice">
+                * Note: This contact interface is a student project demonstration. Submissions are processed locally within your browser session to demonstrate client-side validation.
+              </p>
+            </form>
+          </div>
+
+          <!-- Right: Community & FAQ Deck -->
+          <div class="community-info-card">
+            <!-- Community Badge -->
+            <div class="community-badge-box">
+              <div class="community-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="community-badge-text">
+                <h4>Join 2,400+ Concept Pioneers</h4>
+                <p>Support student engineering and receive our open-source whitepapers.</p>
+              </div>
+            </div>
+
+            <!-- Pioneer Benefits -->
+            <div class="community-perks">
+              <h4 class="perks-title">Pioneer Community Benefits:</h4>
+              <ul class="perks-list">
+                <li>
+                  <span class="perk-check">&check;</span>
+                  <span>Direct updates on university lab prototype milestones</span>
+                </li>
+                <li>
+                  <span class="perk-check">&check;</span>
+                  <span>Vote on future eyewear frame aesthetics &amp; colorways</span>
+                </li>
+                <li>
+                  <span class="perk-check">&check;</span>
+                  <span>Priority invitation to virtual student design seminars</span>
+                </li>
+                <li>
+                  <span class="perk-check">&check;</span>
+                  <span>Access to our polymer materials research bibliography</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Mini FAQ Accordion -->
+            <div class="mini-faq">
+              <h4 class="faq-header">Frequently Asked Questions</h4>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span>How does intense sunlight override the temperature tint?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>In our proposed chemical architecture, photo-reactive silver halide particles possess higher optical density when excited by direct UV photons. Once solar UV exceeds index 6, the photo-reactive darkening dominates the light transmission curve, transitioning the lens into deep blackout mode regardless of whether it was Ice Blue, Silver, or Bronze.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span>Can I put my strong prescription in these lenses?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>Yes. The innovation is designed as a surface-infused coating on standard 1.67 or 1.74 high-index optical lenses, meaning optometrists would surface and edge the prescription exactly as they do with ordinary corrective lenses.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span>Is this an active commercial product?</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-chevron"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                  <p>No. ChromaVision is an innovative engineering concept created for academic design competitions. It explores the feasibility of combining dual-stimulus smart materials to inspire the future of optical technology.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Founder Contact Info -->
+            <div class="founder-box">
+              <div class="founder-avatar-group">
+                <div class="founder-avatar">CV</div>
+                <div>
+                  <span class="founder-name">ChromaVision Student Team</span>
+                  <span class="founder-role">First-Year B.Tech Web Innovation Project</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       MODAL: FORM CONFIRMATION NOTIFICATION
+       ======================================================== -->
+  <div class="modal-backdrop" id="confirmation-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-icon-wrap">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+      </div>
+      <h3 class="modal-title" id="modal-title">Concept Feedback Transmitted!</h3>
+      <p class="modal-message">
+        Thank you, <strong id="modal-user-name">Innovator</strong>. Your message and support for the <strong>ChromaVision</strong> smart eyewear initiative have been recorded in this local session.
+      </p>
+      <div class="modal-detail-box">
+        <div class="modal-row">
+          <span>Recorded Email:</span>
+          <strong id="modal-user-email">email@domain.com</strong>
+        </div>
+        <div class="modal-row">
+          <span>Selected Profile:</span>
+          <strong id="modal-user-rx">Prescription Wearer</strong>
+        </div>
+        <div class="modal-row">
+          <span>Status:</span>
+          <span class="modal-success-badge">&check; Validated Locally</span>
+        </div>
+      </div>
+      <p class="modal-disclaimer">
+        <em>* As specified in the technology requirements, this is a student project demonstration and no real server transmission occurred.</em>
+      </p>
+      <button class="btn btn-primary btn-block" id="modal-close-btn">Return to Website</button>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-col brand-col">
+          <div class="footer-logo">
+            <span class="logo-title">CHROMA<span>VISION</span></span>
+            <span class="logo-badge">CONCEPT</span>
+          </div>
+          <p class="footer-tagline">"See the World in Every Shade."</p>
+          <p class="footer-desc">
+            An innovative startup concept combining prescription optics with temperature- and sunlight-responsive adaptive lenses. One frame for all light and all climates.
+          </p>
+          <div class="footer-academic-pill">
+            <span>&bull; First-Year B.Tech Web Innovation Competition</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Our Startup</a></li>
+            <li><a href="#innovation">Our Innovation</a></li>
+            <li><a href="#studio">Interactive Colour Studio</a></li>
+            <li><a href="#features">Product Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#future-vision">Future Vision</a></li>
+            <li><a href="#contact">Contact &amp; Community</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Adaptive Lens Spectrums -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Lens Spectrums</h4>
+          <ul class="footer-links tint-links">
+            <li><span class="tint-dot ice"></span> <a href="#studio">Ice Blue (&lt; 12&deg;C)</a></li>
+            <li><span class="tint-dot silver"></span> <a href="#studio">Silver Grey (18&deg;&ndash;24&deg;C)</a></li>
+            <li><span class="tint-dot bronze"></span> <a href="#studio">Bronze (&gt; 28&deg;C)</a></li>
+            <li><span class="tint-dot black"></span> <a href="#studio">Dark Black (Intense Solar)</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Project Info -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Tech Stack</h4>
+          <ul class="footer-links">
+            <li><span>&bull; Semantic HTML5 Architecture</span></li>
+            <li><span>&bull; Modern Responsive CSS3</span></li>
+            <li><span>&bull; Vanilla JavaScript Engine</span></li>
+            <li><span>&bull; Zero Frameworks / Zero Bloat</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-divider" aria-hidden="true"></div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          &copy; 2026 <strong>ChromaVision</strong> Concept Labs. Created for the B.Tech Web Innovation Showcase. All rights reserved.
+        </p>
+        <p class="footer-academic-notice">
+          Conceptual student design project. Not an approved medical device or commercial product.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Floating Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top of page">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
+
